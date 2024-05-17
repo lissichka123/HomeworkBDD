@@ -23,13 +23,10 @@ public class DashboardPage {
         val text = cards.findBy(Condition.text("**** **** **** " + cardInfo.getCardNumber().substring(15))).getText();
         return extractBalance(text);
     }
-    public int getCardBalance(int index){
-        val text = cards.get(index).getText();
-        return extractBalance(text);
-    }
+
 
     public TransferPage selectCardToTransfer(DataHelper.CardInfo cardInfo){
-        cards.findBy(Condition.attribute("data-test-id", cardInfo.getTestId())).$("button").click();
+        cards.findBy(Condition.attribute("data-test-id",cardInfo.getTestId())).$("button").click();
         return new TransferPage();
     }
 
