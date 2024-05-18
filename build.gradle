@@ -18,10 +18,12 @@ dependencies {
     testImplementation 'com.codeborne:selenide:6.17.2'
     testCompileOnly 'org.projectlombok:lombok:1.18.28'
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.28'
-     testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.32'
+    testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.32'
 }
 
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    systemProperty 'chromeoptions.prefs', System.getProperty('chromeoptions.prefs', "profile.password_manager_leak_detection=false")
+
 }
